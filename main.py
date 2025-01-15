@@ -4,13 +4,21 @@ import turtle as trtl
 import re
 ### Imports End
 
+### Personalization Start
+whiteboard_color = 'black'
+axis_color = 'white'
+graph_color = 'red'
+### Personalization End
+
 ### Set-Up Turtle Program
 ## Pen Set-Up
 pen = trtl.Turtle()
-pen.color('white')
+pen.color(axis_color)
+
 ## Window Set-Up
 wn = trtl.Screen()
-wn.bgcolor('black')
+wn.bgcolor(whiteboard_color)
+
 ### End turtle Set-Up
 
 ### Lists for filter
