@@ -8,6 +8,8 @@ import re
 whiteboard_color = 'black'
 axis_color = 'white'
 graph_color = 'red'
+# Scale for ticks
+scale_factor = 5
 ### Personalization End
 
 ### Set-Up Turtle Program
@@ -38,8 +40,10 @@ def re_replace():
     for id in range(len(filter_list)):
         input = re.sub(filter_list[id], replace_list[id], input)
 
+# Set-up axis for graph
 def draw_axis():
-    global pen, wn
+    global pen, wn, scale_factor
+    # Lines for the axis
     pen.penup()
     pen.goto(0, -400)
     pen.pendown()
@@ -48,6 +52,8 @@ def draw_axis():
     pen.goto(-500, 0)
     pen.pendown()
     pen.goto(500, 0)
+    # tick marks
+
 ### End function defining
 
 
