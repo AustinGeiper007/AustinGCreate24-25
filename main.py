@@ -48,11 +48,4 @@ input = input('Input equation: ')
 
 re_replace()
 
-### FOR TESTING ONLY
-for num in range (-500, 500):
-   x = num
-   y = eval(input)
-   print(x, y)
-
-
 wn.mainloop()
