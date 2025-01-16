@@ -44,7 +44,7 @@ def draw_axis():
     pen.pendown()
     pen.goto(500, 0)
 
-# Draw tick ends with the pen up
+# draw_tick() ends with the pen up
 def draw_tick():
     global pen, scale_factor, tick_size
     pen.pendown()
@@ -55,6 +55,7 @@ def draw_tick():
         pen.left(90)
     pen.penup()
 
+# Ends with pen up (as result of draw_tick())
 def draw_tick_marks():
     global pen, scale_factor
     pen.penup()
@@ -70,6 +71,7 @@ def draw_tick_marks():
         pen.goto(0, scale_factor*tick*-1)
         draw_tick()
 
+# Ends with pen up (as result of draw_tick_marks())
 def setup_graph():
     global pen, wn, scale_factor
     draw_axis()
