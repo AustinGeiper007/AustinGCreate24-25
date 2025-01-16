@@ -8,41 +8,32 @@ import re
 whiteboard_color = 'black'
 axis_color = 'white'
 graph_color = 'red'
-# Scale for ticks
-scale_factor = 5
+# Scale for ticks (number of turtle units between ticks)
+scale_factor = 50
+# Width of each tick
+tick_size = 10
 ### Personalization End
-
-### Set-Up Turtle Program
-## Pen Set-Up
-pen = trtl.Turtle()
-pen.color(axis_color)
-
-## Window Set-Up
-wn = trtl.Screen()
-wn.bgcolor(whiteboard_color)
-
-### End turtle Set-Up
 
 ### Lists for filter
 filter_list = [r'(sine|sin)\(?', r'(cosine|cos)\(?', r'(tangent|tan)\(?', r'e\^\(?']
 replace_list = ['m.sin(', 'm.cos(', 'm.tan(', 'm.exp(']
 ### End Lists
 
-### Globaling variables
-global input, x, y
-### End global
+# Ask for input equations
+equation_input = input('Input equation: ')
+
 
 ### Defining functions
 # Regex to replace text
 def re_replace():
-    global input
-    # Run thru list of filters and replaces them accordingly
-    for id in range(len(filter_list)):
-        input = re.sub(filter_list[id], replace_list[id], input)
+    global equation_input
+    # Run through list of filters and replaces them accordingly
+    for filter_id in range(len(filter_list)):
+        equation_input = re.sub(filter_list[filter_id], replace_list[filter_id], equation_input)
 
 # Set-up axis for graph
 def draw_axis():
-    global pen, wn, scale_factor
+    global pen, wn, scale_factor, tick_size
     # Lines for the axis
     pen.penup()
     pen.goto(0, -400)
@@ -52,14 +43,56 @@ def draw_axis():
     pen.goto(-500, 0)
     pen.pendown()
     pen.goto(500, 0)
-    # tick marks
+
+# Draw tick ends with the pen up
+def draw_tick():
+    global pen, scale_factor, tick_size
+    pen.pendown()
+    for side in range(4):
+        pen.forward(tick_size)
+        pen.right(180)
+        pen.forward(tick_size)
+        pen.left(90)
+    pen.penup()
+
+def draw_tick_marks():
+    global pen, scale_factor
+    pen.penup()
+    pen.goto(0, 0)
+    for tick in range(int(500/scale_factor)):
+        pen.penup()
+        pen.goto(scale_factor*tick, 0)
+        draw_tick()
+        pen.goto(0, scale_factor*tick)
+        draw_tick()
+        pen.goto(scale_factor*tick*-1, 0)
+        draw_tick()
+        pen.goto(0, scale_factor*tick*-1)
+        draw_tick()
+
+def setup_graph():
+    global pen, wn, scale_factor
+    draw_axis()
+    draw_tick_marks()
 
 ### End function defining
 
 
-# Ask for input equations
-input = input('Input equation: ')
-
+### Run Replacement
 re_replace()
+
+### Set-Up Turtle Program
+## Pen Set-Up
+pen = trtl.Turtle()
+pen.color(axis_color)
+pen.speed(0)
+
+## Window Set-Up
+wn = trtl.Screen()
+wn.bgcolor(whiteboard_color)
+
+### End turtle Set-Up
+
+setup_graph()
 
 wn.mainloop()
