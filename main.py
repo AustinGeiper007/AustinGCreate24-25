@@ -12,6 +12,11 @@ graph_color = 'red'
 scale_factor = 50
 # Width of each tick
 tick_size = 10
+# Constants for turtle window
+right_bound = 500
+left_bound = -500
+top_bound = 400
+bottom_bound = -400
 ### Personalization End
 
 ### Lists for filter
@@ -76,6 +81,9 @@ def setup_graph():
     global pen, wn, scale_factor
     draw_axis()
     draw_tick_marks()
+
+def graph_function():
+    global pen, wn, scale_factor, equation_input
 
 ### End function defining
 
