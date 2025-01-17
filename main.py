@@ -41,13 +41,13 @@ def draw_axis():
     global pen, wn, scale_factor, tick_size
     # Lines for the axis
     pen.penup()
-    pen.goto(0, -400)
+    pen.goto(0, bottom_bound)
     pen.pendown()
-    pen.goto(0, 400)
+    pen.goto(0, top_bound)
     pen.penup()
-    pen.goto(-500, 0)
+    pen.goto(left_bound, 0)
     pen.pendown()
-    pen.goto(500, 0)
+    pen.goto(right_bound, 0)
 
 # draw_tick() ends with the pen up
 def draw_tick():
