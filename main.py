@@ -20,6 +20,11 @@ right_bound = 500
 left_bound = -500
 top_bound = 400
 bottom_bound = -400
+# Resolution (points plotted)
+resolution = 500
+# Initializing values for graphing
+x = left_bound
+y = 0
 ### Personalization End
 
 ### Lists for filter
@@ -86,7 +91,7 @@ def setup_graph():
     draw_tick_marks()
 
 def graph_function():
-    global pen, wn, scale_factor, equation_input
+    global pen, wn, scale_factor, equation_input, x, y
 
 ### End function defining
 
