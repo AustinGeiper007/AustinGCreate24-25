@@ -25,7 +25,6 @@ graph_width = right_bound - left_bound
 resolution = 500
 # Initializing values for graphing
 x = left_bound
-y = 0
 ### Personalization End
 
 ### Lists for filter
@@ -75,15 +74,18 @@ def draw_tick_marks():
     pen.penup()
     pen.goto(0, 0)
     for tick in range(int(500/scale_factor)):
-        pen.penup()
-        pen.goto(scale_factor*tick, 0)
-        draw_tick()
-        pen.goto(0, scale_factor*tick)
-        draw_tick()
-        pen.goto(scale_factor*tick*-1, 0)
-        draw_tick()
-        pen.goto(0, scale_factor*tick*-1)
-        draw_tick()
+        if tick != 0:
+            pen.penup()
+            pen.goto(scale_factor*tick, 0)
+            draw_tick()
+            pen.goto(0, scale_factor*tick)
+            draw_tick()
+            pen.goto(scale_factor*tick*-1, 0)
+            draw_tick()
+            pen.goto(0, scale_factor*tick*-1)
+            draw_tick()
+        else:
+            draw_tick()
 
 # Ends with pen up (as result of draw_tick_marks())
 def setup_graph():
