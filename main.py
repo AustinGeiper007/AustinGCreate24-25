@@ -20,6 +20,7 @@ right_bound = 500
 left_bound = -500
 top_bound = 400
 bottom_bound = -400
+graph_width = right_bound - left_bound
 # Resolution (points plotted)
 resolution = 500
 # Initializing values for graphing
@@ -92,6 +93,7 @@ def setup_graph():
 
 def graph_function():
     global pen, wn, scale_factor, equation_input, x, y
+
 
 ### End function defining
 
