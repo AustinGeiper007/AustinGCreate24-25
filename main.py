@@ -9,10 +9,13 @@ whiteboard_color = 'black'
 axis_color = 'white'
 graph_color = 'red'
 # Scale for ticks (number of turtle units between ticks)
+# Recommended value: 50
 scale_factor = 50
 # Width of each tick
+# Recommended value: 10
 tick_size = 10
 # Constants for turtle window
+# Recommended values: +/- 500 +/- 400
 right_bound = 500
 left_bound = -500
 top_bound = 400
