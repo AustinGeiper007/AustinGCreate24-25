@@ -99,7 +99,7 @@ def graph_function():
     pen.penup()
     pen.goto(x, y)
     pen.pendown()
-    for x_value in range(int(graph_width/resolution)):
+    for x_value in range(resolution):
         y = eval(equation_input)
         pen.goto(x, y)
         x += graph_width/resolution
