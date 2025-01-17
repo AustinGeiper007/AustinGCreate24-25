@@ -92,7 +92,16 @@ def setup_graph():
     draw_tick_marks()
 
 def graph_function():
-    global pen, wn, scale_factor, equation_input, x, y
+    global pen, wn, scale_factor, equation_input, x, y, graph_width
+    y = eval(equation_input)
+    pen.penup()
+    pen.goto(x, y)
+    pen.pendown()
+    for x_value in range(int(graph_width/resolution)):
+        y = eval(equation_input)
+        pen.goto(x, y)
+        x += graph_width/resolution
+
 
 
 ### End function defining
@@ -114,5 +123,6 @@ wn.bgcolor(whiteboard_color)
 ### End turtle Set-Up
 
 setup_graph()
+graph_function()
 
 wn.mainloop()
