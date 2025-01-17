@@ -16,10 +16,10 @@ scale_factor = 50
 tick_size = 10
 # Constants for turtle window
 # Recommended values: +/- 500 +/- 400
-right_bound = 500
-left_bound = -500
-top_bound = 400
-bottom_bound = -400
+right_bound = 1000
+left_bound = -1000
+top_bound = 800
+bottom_bound = -800
 graph_width = right_bound - left_bound
 # Resolution (points plotted)
 resolution = 500
@@ -96,6 +96,7 @@ def setup_graph():
 def graph_function():
     global pen, wn, scale_factor, equation_input, x, y, graph_width
     y = eval(equation_input)
+    pen.color(graph_color)
     pen.penup()
     pen.goto(x, y)
     pen.pendown()
