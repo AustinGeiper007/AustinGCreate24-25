@@ -46,7 +46,7 @@ def re_replace():
 
 # Set-up axis for graph
 def draw_axis():
-    global pen, wn, scale_factor, tick_size
+    global pen, wn, tick_size
     # Lines for the axis
     pen.penup()
     pen.goto(0, bottom_bound)
@@ -59,7 +59,7 @@ def draw_axis():
 
 # draw_tick() ends with the pen up
 def draw_tick():
-    global pen, scale_factor, tick_size
+    global pen, tick_size
     pen.pendown()
     for side in range(4):
         pen.forward(tick_size)
@@ -89,7 +89,7 @@ def draw_tick_marks():
 
 # Ends with pen up (as result of draw_tick_marks())
 def setup_graph():
-    global pen, wn, scale_factor
+    global pen, wn
     draw_axis()
     draw_tick_marks()
 
