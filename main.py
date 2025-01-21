@@ -15,14 +15,14 @@ scale_factor = 50
 # Recommended value: 10
 tick_size = 10
 # Constants for turtle window
-# Recommended values: +/- 500 +/- 400
+# Recommended values: +/- 1000 +/- 800
 right_bound = 1000
 left_bound = -1000
 top_bound = 800
 bottom_bound = -800
 graph_width = right_bound - left_bound
 # Resolution (points plotted)
-resolution = 500
+resolution = 1000
 # Initializing values for graphing
 x = left_bound
 ### Personalization End
@@ -73,8 +73,10 @@ def draw_tick_marks():
     global pen, scale_factor
     pen.penup()
     pen.goto(0, 0)
-    for tick in range(int(500/scale_factor)):
-        if tick != 0:
+    for tick in range(int(1000/scale_factor)):
+        if tick == 0:
+            draw_tick()
+        elif tick <= 10:
             pen.penup()
             pen.goto(scale_factor*tick, 0)
             draw_tick()
@@ -85,6 +87,10 @@ def draw_tick_marks():
             pen.goto(0, scale_factor*tick*-1)
             draw_tick()
         else:
+            pen.penup()
+            pen.goto(scale_factor*tick, 0)
+            draw_tick()
+            pen.goto(scale_factor*tick*-1, 0)
             draw_tick()
 
 # Ends with pen up (as result of draw_tick_marks())
@@ -121,6 +127,7 @@ pen.speed(0)
 
 ## Window Set-Up
 wn = trtl.Screen()
+wn.setup(width=1.0, height=1.0)
 wn.bgcolor(whiteboard_color)
 
 ### End turtle Set-Up
