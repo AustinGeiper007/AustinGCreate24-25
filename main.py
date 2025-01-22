@@ -5,6 +5,7 @@ import re
 ### Imports End
 
 ### Personalization Start
+# Colors (use words or hex code)
 whiteboard_color = 'black'
 axis_color = 'white'
 graph_color = 'red'
@@ -94,10 +95,10 @@ def setup_graph():
     draw_axis()
     draw_tick_marks()
 
-def graph_function():
-    global pen, scale_factor, equation_input, x, y, graph_width
+def graph_function(eq):
+    global pen, scale_factor, x, y, graph_width
     x /= scale_factor
-    y = eval(equation_input)
+    y = eval(eq)
     pen.color(graph_color)
     pen.penup()
     x *= scale_factor
@@ -106,7 +107,7 @@ def graph_function():
     pen.pendown()
     for x_value in range(resolution):
         x/= scale_factor
-        y = eval(equation_input)
+        y = eval(eq)
         x *= scale_factor
         y *= scale_factor
         pen.goto(x, y)
@@ -136,6 +137,6 @@ wn.bgcolor(whiteboard_color)
 ### End turtle Set-Up
 
 setup_graph()
-graph_function()
+graph_function(equation_input)
 
 wn.mainloop()
