@@ -32,10 +32,6 @@ filter_list = [r'(sine|sin)\(?', r'(cosine|cos)\(?', r'(tangent|tan)\(?', r'e\^\
 replace_list = ['m.sin(', 'm.cos(', 'm.tan(', 'm.exp(']
 ### End Lists
 
-# Ask for input equations
-equation_input = input('Input equation: ')
-
-
 ### Defining functions
 # Regex to replace text
 def re_replace():
@@ -120,6 +116,8 @@ def graph_function():
 
 ### End function defining
 
+# Ask for input equations
+equation_input = input('Input equation: ')
 
 ### Run Replacement
 re_replace()
