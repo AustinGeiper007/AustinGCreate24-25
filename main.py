@@ -66,6 +66,19 @@ def draw_tick():
         pen.left(90)
     pen.penup()
 
+'''
+Proposed new draw tick to increase eff
+Need to adj draw_tick_marks() to use properly
+def draw_tick():
+    global pen, tick_size
+    pen.pendown()
+    pen.left(90)
+    pen.forward(tick_size)
+    pen.left(180)
+    pen.forward(tick_size*2)
+    pen.penup()
+'''
+
 # Ends with pen up (as result of draw_tick())
 def draw_tick_marks():
     global pen, scale_factor
