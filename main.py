@@ -46,7 +46,7 @@ def re_replace():
 
 # Set-up axis for graph
 def draw_axis():
-    global pen, wn, tick_size
+    global pen
     # Lines for the axis
     pen.penup()
     pen.goto(0, bottom_bound)
@@ -95,12 +95,11 @@ def draw_tick_marks():
 
 # Ends with pen up (as result of draw_tick_marks())
 def setup_graph():
-    global pen, wn
     draw_axis()
     draw_tick_marks()
 
 def graph_function():
-    global pen, wn, scale_factor, equation_input, x, y, graph_width
+    global pen, scale_factor, equation_input, x, y, graph_width
     x /= scale_factor
     y = eval(equation_input)
     pen.color(graph_color)
