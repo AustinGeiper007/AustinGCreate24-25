@@ -101,13 +101,19 @@ def setup_graph():
 
 def graph_function():
     global pen, wn, scale_factor, equation_input, x, y, graph_width
+    x /= scale_factor
     y = eval(equation_input)
     pen.color(graph_color)
     pen.penup()
+    x *= scale_factor
+    y *= scale_factor
     pen.goto(x, y)
     pen.pendown()
     for x_value in range(resolution):
+        x/= scale_factor
         y = eval(equation_input)
+        x *= scale_factor
+        y *= scale_factor
         pen.goto(x, y)
         x += graph_width/resolution
 
