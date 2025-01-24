@@ -104,6 +104,32 @@ def draw_tick_marks():
             pen.goto(scale_factor*tick*-1, 0)
             draw_tick()
 
+'''
+editing above function for later use
+global pen, scale_factor
+pen.penup()
+pen.goto(0, 0)
+for tick in range(int(1000/scale_factor)):
+    if tick == 0:
+        draw_tick()
+    elif tick <= 10:
+        pen.penup()
+        pen.goto(scale_factor*tick, 0)
+        draw_tick()
+        pen.goto(0, scale_factor*tick)
+        draw_tick()
+        pen.goto(scale_factor*tick*-1, 0)
+        draw_tick()
+        pen.goto(0, scale_factor*tick*-1)
+        draw_tick()
+    else:
+        pen.penup()
+        pen.goto(scale_factor*tick, 0)
+        draw_tick()
+        pen.goto(scale_factor*tick*-1, 0)
+        draw_tick()
+'''
+
 # Ends with pen up (as result of draw_tick_marks())
 def setup_graph():
     draw_axis()
