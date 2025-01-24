@@ -55,7 +55,7 @@ def draw_axis():
     pen.pendown()
     pen.goto(right_bound, 0)
 
-# draw_tick() ends with the pen up
+# draw_tick() ends with the pen up and heading 0
 def draw_tick():
     global pen, tick_size
     pen.pendown()
@@ -65,6 +65,7 @@ def draw_tick():
         pen.forward(tick_size)
         pen.left(90)
     pen.penup()
+    pen.setheading(0)
 
 '''
 Proposed new draw tick to increase eff
@@ -77,6 +78,7 @@ def draw_tick():
     pen.left(180)
     pen.forward(tick_size*2)
     pen.penup()
+    pen.setheading(0)
 '''
 
 # Ends with pen up (as result of draw_tick())
