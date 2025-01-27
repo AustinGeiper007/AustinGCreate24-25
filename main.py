@@ -86,7 +86,7 @@ def draw_tick_marks():
     global pen, scale_factor
     pen.penup()
     pen.goto(0, 0)
-    for tick in range(int(1000/scale_factor)):
+    for tick in range(int(right_bound/scale_factor)):
         if tick == 0:
             draw_tick()
         elif tick <= 10:
