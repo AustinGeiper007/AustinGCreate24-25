@@ -137,7 +137,7 @@ def setup_graph():
     draw_axis()
     draw_tick_marks()
 
-def graph_function(eq):
+def graph_rect_function(eq):
     global pen, scale_factor, x, y, graph_width
     x /= scale_factor
     y = eval(eq)
@@ -179,6 +179,6 @@ wn.bgcolor(whiteboard_color)
 ### End turtle Set-Up
 
 setup_graph()
-graph_function(equation_input)
+graph_rect_function(equation_input)
 
 wn.mainloop()
