@@ -36,11 +36,11 @@ replace_list = ['m.sin(', 'm.cos(', 'm.tan(', 'm.exp(']
 
 ### Defining functions
 # Regex to replace text
-def re_replace():
-    global equation_input
+def re_replace(equation):
     # Run through list of filters and replaces them accordingly
     for filter_id in range(len(filter_list)):
-        equation_input = re.sub(filter_list[filter_id], replace_list[filter_id], equation_input)
+        neweq = re.sub(filter_list[filter_id], replace_list[filter_id], equation)
+    return neweq
 
 # Set-up axis for graph
 def draw_axis():
@@ -155,15 +155,29 @@ def graph_rect_function(eq):
         pen.goto(x, y)
         x += graph_width/resolution
 
+def graph_parametric_function(xeq, yeq, t_min, t_max):
+    global pen, scale_factor, x, y, graph_width
+    t = t_min
+    for t in (t_max-t_min):
+        x = eval(xeq)
+        y = eval(yeq)
+        pen.goto(x, y)
 
+
+
+def start(eq_type):
+    if eq_type == 'R' or 'r':
+        equation = input('(in terms of x) y=')
+        graph_rect_function(equation)
+    if eq_type == 'P' or 'p':
+        x_equation = input('(in terms of t) x=')
+        y_equation = input('(in terms of t) y=')
+        print('What is your range (in terms of t)')
+        t_minimum = int(input('Minimum Range: '))
+        t_maximum = int(input('Maximum Range: '))
+        graph_parametric_function(x_equation, y_equation, t_minimum, t_maximum)
 
 ### End function defining
-
-# Ask for input equations
-equation_input = input('Input equation: ')
-
-### Run Replacement
-re_replace()
 
 ### Set-Up Turtle Program
 ## Pen Set-Up
@@ -178,7 +192,8 @@ wn.bgcolor(whiteboard_color)
 
 ### End turtle Set-Up
 
-setup_graph()
-graph_rect_function(equation_input)
+print('What type of equation would you like to graph? Rectangular (y=...) or Parametric (x=...; y=...)')
+eq_type = input('R/P: ')
+start(eq_type)
 
 wn.mainloop()
