@@ -168,10 +168,13 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
 def start(eq_type):
     if eq_type == 'R' or 'r':
         equation = input('(in terms of x) y=')
+        euqation = re_replace(equation)
         graph_rect_function(equation)
     if eq_type == 'P' or 'p':
         x_equation = input('(in terms of t) x=')
+        x_equation = re_replace(x_equation)
         y_equation = input('(in terms of t) y=')
+        y_equation = re_replace(y_equation)
         print('What is your range (in terms of t)')
         t_minimum = int(input('Minimum Range: '))
         t_maximum = int(input('Maximum Range: '))
