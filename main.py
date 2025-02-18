@@ -59,78 +59,41 @@ def draw_axis():
 def draw_tick():
     global pen, tick_size
     pen.pendown()
-    for side in range(4):
-        pen.forward(tick_size)
-        pen.right(180)
-        pen.forward(tick_size)
-        pen.left(90)
-    pen.penup()
-    pen.setheading(0)
-
-'''
-Proposed new draw tick to increase eff
-Need to adj draw_tick_marks() to use properly
-def draw_tick():
-    global pen, tick_size
-    pen.pendown()
     pen.left(90)
     pen.forward(tick_size)
     pen.left(180)
     pen.forward(tick_size*2)
     pen.penup()
+    pen.left(180)
+    pen.forward(tick_size)
     pen.setheading(0)
-'''
 
 # Ends with pen up (as result of draw_tick())
 def draw_tick_marks():
     global pen, scale_factor
     pen.penup()
     pen.goto(0, 0)
-    for tick in range(int(right_bound/scale_factor)):
-        if tick == 0:
-            draw_tick()
-        elif tick <= 10:
+    #tickset refers to the 4 tick group a specified number of units from the origin
+    for tickset in range(int(right_bound/scale_factor)):
+        if 0 < tickset <= 10:
             pen.penup()
-            pen.goto(scale_factor*tick, 0)
+            pen.goto(scale_factor*tickset, 0)
             draw_tick()
-            pen.goto(0, scale_factor*tick)
+            pen.goto(0, scale_factor*tickset)
+            pen.left(90)
             draw_tick()
-            pen.goto(scale_factor*tick*-1, 0)
+            pen.goto(scale_factor*tickset*-1, 0)
             draw_tick()
-            pen.goto(0, scale_factor*tick*-1)
+            pen.goto(0, scale_factor*tickset*-1)
+            pen.left(90)
             draw_tick()
         else:
             pen.penup()
-            pen.goto(scale_factor*tick, 0)
+            pen.goto(scale_factor*tickset, 0)
             draw_tick()
-            pen.goto(scale_factor*tick*-1, 0)
+            pen.goto(scale_factor*tickset*-1, 0)
             draw_tick()
 
-'''
-editing above function for later use
-global pen, scale_factor
-pen.penup()
-pen.goto(0, 0)
-for tick in range(int(1000/scale_factor)):
-    if tick == 0:
-        draw_tick()
-    elif tick <= 10:
-        pen.penup()
-        pen.goto(scale_factor*tick, 0)
-        draw_tick()
-        pen.goto(0, scale_factor*tick)
-        draw_tick()
-        pen.goto(scale_factor*tick*-1, 0)
-        draw_tick()
-        pen.goto(0, scale_factor*tick*-1)
-        draw_tick()
-    else:
-        pen.penup()
-        pen.goto(scale_factor*tick, 0)
-        draw_tick()
-        pen.goto(scale_factor*tick*-1, 0)
-        draw_tick()
-'''
 
 # Ends with pen up (as result of draw_tick_marks())
 def setup_graph():
@@ -168,7 +131,8 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
 def start(eq_type):
     if eq_type == 'R' or 'r':
         equation = input('(in terms of x) y=')
-        euqation = re_replace(equation)
+        equation = re_replace(equation)
+        setup_graph()
         graph_rect_function(equation)
     if eq_type == 'P' or 'p':
         x_equation = input('(in terms of t) x=')
@@ -178,6 +142,7 @@ def start(eq_type):
         print('What is your range (in terms of t)')
         t_minimum = int(input('Minimum Range: '))
         t_maximum = int(input('Maximum Range: '))
+        setup_graph()
         graph_parametric_function(x_equation, y_equation, t_minimum, t_maximum)
 
 ### End function defining
@@ -190,7 +155,7 @@ pen.speed(0)
 
 ## Window Set-Up
 wn = trtl.Screen()
-wn.setup(width=1.0, height=1.0)
+wn.setup(width=1, height=1)
 wn.bgcolor(whiteboard_color)
 
 ### End turtle Set-Up
