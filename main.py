@@ -155,7 +155,7 @@ pen.speed(0)
 
 ## Window Set-Up
 wn = trtl.Screen()
-wn.setup(width=1, height=1)
+wn.setup(width=(right_bound-left_bound)/2000, height=(top_bound-bottom_bound)/1600)
 wn.bgcolor(whiteboard_color)
 
 ### End turtle Set-Up
