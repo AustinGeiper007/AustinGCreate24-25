@@ -116,7 +116,10 @@ def graph_rect_function(eq):
         y = eval(eq)
         x *= scale_factor
         y *= scale_factor
+        if (pen.ycor() > 0 > y) or (pen.ycor() < 0 < y):
+            pen.penup()
         pen.goto(x, y)
+        pen.pendown()
         x += graph_width/resolution
 
 def graph_parametric_function(xeq, yeq, t_min, t_max):
