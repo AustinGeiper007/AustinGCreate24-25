@@ -25,14 +25,14 @@ bottom_bound = -800
 graph_width = right_bound - left_bound
 # Resolution (points plotted)
 # Recommended value: 200 (range 1-1000)
-resolution = 350
+resolution = 500
 # Initializing values for graphing
 x = left_bound
 ### Personalization End
 
 ### Lists for filter
-filter_list = [r'(sine|sin)\(?', r'(cosine|cos)\(?', r'(tangent|tan)\(?', r'e\^\(?']
-replace_list = ['m.sin(', 'm.cos(', 'm.tan(', 'm.exp(']
+filter_list = [r'(sine|sin)\(?', r'(cosine|cos)\(?', r'(tangent|tan)\(?', r'e\^\(?', r'pi']
+replace_list = ['m.sin(', 'm.cos(', 'm.tan(', 'm.exp(', 'm.pi']
 ### End Lists
 
 ### Defining functions
