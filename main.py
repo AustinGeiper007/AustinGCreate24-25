@@ -8,6 +8,7 @@ import re
 # Colors (use words or hex code)
 whiteboard_color = 'black'
 axis_color = 'white'
+graph_colors = ['red', 'blue', 'magenta', 'green', 'orange', 'brown']
 graph_color = 'red'
 # Scale for ticks (number of turtle units between ticks)
 # Recommended value: 50
