@@ -1,4 +1,6 @@
 ### Import statements cus I need those
+# There will be an error saying import math as m is unused and shouldn't be there
+# That would be incorrect, it's just stored in strings, so it's not being seen properly
 import math as m
 import turtle as trtl
 import re
