@@ -24,7 +24,7 @@ bottom_bound = -800
 graph_width = right_bound - left_bound
 # Resolution (points plotted)
 # Recommened value: 200 (range 1-1000)
-resolution = 200
+resolution = 350
 # Initializing values for graphing
 x = left_bound
 ### Personalization End
@@ -40,7 +40,7 @@ def re_replace(equation):
     # Run through list of filters and replaces them accordingly
     for filter_id in range(len(filter_list)):
         equation = re.sub(filter_list[filter_id], replace_list[filter_id], equation)
-    return str(equation)
+    return equation
 
 # Set-up axis for graph
 def draw_axis():
