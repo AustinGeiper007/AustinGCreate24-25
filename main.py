@@ -39,8 +39,8 @@ replace_list = ['m.sin(', 'm.cos(', 'm.tan(', 'm.exp(']
 def re_replace(equation):
     # Run through list of filters and replaces them accordingly
     for filter_id in range(len(filter_list)):
-        neweq = re.sub(filter_list[filter_id], replace_list[filter_id], equation)
-    return neweq
+        equation = re.sub(filter_list[filter_id], replace_list[filter_id], equation)
+    return str(equation)
 
 # Set-up axis for graph
 def draw_axis():
