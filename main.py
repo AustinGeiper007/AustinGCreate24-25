@@ -23,7 +23,7 @@ top_bound = 800
 bottom_bound = -800
 graph_width = right_bound - left_bound
 # Resolution (points plotted)
-# Recommened value: 200 (range 1-1000)
+# Recommended value: 200 (range 1-1000)
 resolution = 350
 # Initializing values for graphing
 x = left_bound
