@@ -37,7 +37,7 @@ replace_list = ['m.sin(', 'm.cos(', 'm.tan(', 'm.exp(', 'm.pi']
 
 ### Defining functions
 # Regex to replace text
-def re_replace(equation):
+def regex_replace(equation):
     # Run through list of filters and replaces them accordingly
     for filter_id in range(len(filter_list)):
         equation = re.sub(filter_list[filter_id], replace_list[filter_id], equation)
@@ -135,14 +135,14 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
 def start(eq_type):
     if eq_type == 'R' or 'r':
         input_equation = input('(in terms of x) y=')
-        equation = re_replace(input_equation)
+        equation = regex_replace(input_equation)
         setup_graph()
         graph_rect_function(equation)
     elif eq_type == 'P' or 'p':
         x_input = input('(in terms of t) x=')
-        x_equation = re_replace(x_input)
+        x_equation = regex_replace(x_input)
         y_input = input('(in terms of t) y=')
-        y_equation = re_replace(y_input)
+        y_equation = regex_replace(y_input)
         print('What is your range (in terms of t)')
         t_minimum = int(input('Minimum Range: '))
         t_maximum = int(input('Maximum Range: '))
