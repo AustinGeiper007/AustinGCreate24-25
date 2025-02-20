@@ -28,8 +28,6 @@ graph_width = right_bound - left_bound
 # Resolution (points plotted)
 # Recommended value: 200 (range 1-1000)
 resolution = 500
-# Initializing values for graphing
-x = left_bound
 ### Personalization End
 
 ### Lists for filter
@@ -100,11 +98,13 @@ def draw_tick_marks():
 
 # Ends with pen up (as result of draw_tick_marks())
 def setup_graph():
+    pen.color(axis_color)
     draw_axis()
     draw_tick_marks()
 
 def graph_rect_function(eq):
-    global pen, scale_factor, x, y, graph_width
+    global pen, scale_factor, graph_width
+    x = left_bound
     x /= scale_factor
     y = eval(eq)
     pen.color(graph_color)
@@ -134,12 +134,13 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
 
 
 
-def start(eq_type):
+def start(eq_type, num_eqs):
     if eq_type == 'R' or 'r':
-        input_equation = input('(in terms of x) y=')
-        equation = regex_replace(input_equation)
         setup_graph()
-        graph_rect_function(equation)
+        for equations in range(num_eqs):
+            input_equation = input('(in terms of x) y=')
+            equation = regex_replace(input_equation)
+            graph_rect_function(equation)
     elif eq_type == 'P' or 'p':
         x_input = input('(in terms of t) x=')
         x_equation = regex_replace(x_input)
@@ -170,6 +171,7 @@ wn.bgcolor(whiteboard_color)
 
 print('What type of equation would you like to graph? Rectangular (y=...) or Parametric (x=...; y=...)')
 eq_type = input('R/P: ')
-start(eq_type)
+number_of_eqs = int(input('How many equations are you graphing: '))
+start(eq_type, number_of_eqs)
 
 wn.mainloop()
