@@ -33,8 +33,8 @@ x = left_bound
 ### Personalization End
 
 ### Lists for filter
-filter_list = [r'(sine|sin)\(?', r'(cosine|cos)\(?', r'(tangent|tan)\(?', r'e\^\(?', r'pi']
-replace_list = ['m.sin(', 'm.cos(', 'm.tan(', 'm.exp(', 'm.pi']
+filter_list = [r'(sine|sin)\(?', r'(cosine|cos)\(?', r'(tangent|tan)\(?', r'e\^\(?', r'pi', r'\^']
+replace_list = ['m.sin(', 'm.cos(', 'm.tan(', 'm.exp(', 'm.pi', '**']
 ### End Lists
 
 ### Defining functions
@@ -118,7 +118,7 @@ def graph_rect_function(eq):
         y = eval(eq)
         x *= scale_factor
         y *= scale_factor
-        if (pen.ycor() > 0 > y) or (pen.ycor() < 0 < y):
+        if (y < 0 < pen.ycor()) or (pen.ycor() < 0 < y):
             pen.penup()
         pen.goto(x, y)
         pen.pendown()
