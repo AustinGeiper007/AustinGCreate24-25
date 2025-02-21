@@ -107,7 +107,6 @@ def graph_rect_function(eq):
     x = left_bound
     x /= scale_factor
     y = eval(eq)
-    pen.color(graph_color)
     pen.penup()
     x *= scale_factor
     y *= scale_factor
@@ -127,7 +126,7 @@ def graph_rect_function(eq):
 def graph_parametric_function(xeq, yeq, t_min, t_max):
     global pen, scale_factor, x, y, graph_width
     t = t_min
-    for t in (t_max-t_min):
+    for t in range(resolution):
         x = eval(xeq)
         y = eval(yeq)
         pen.goto(x, y)
@@ -138,6 +137,7 @@ def start(eq_type, num_eqs):
     if eq_type == 'R' or 'r':
         setup_graph()
         for equations in range(num_eqs):
+            pen.color(graph_colors[equations])
             input_equation = input('(in terms of x) y=')
             equation = regex_replace(input_equation)
             graph_rect_function(equation)
