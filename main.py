@@ -74,25 +74,25 @@ def draw_tick_marks():
     global pen, scale_factor
     pen.penup()
     pen.goto(0, 0)
-    #tickset refers to the 4 tick group a specified number of units from the origin
-    for tickset in range(int(right_bound/scale_factor)):
-        if 0 < tickset <= 10:
+    #tick_set refers to the 4 tick group a specified number of units from the origin
+    for tick_set in range(int(right_bound/scale_factor)):
+        if 0 < tick_set <= 10:
             pen.penup()
-            pen.goto(scale_factor*tickset, 0)
+            pen.goto(scale_factor*tick_set, 0)
             draw_tick()
-            pen.goto(0, scale_factor*tickset)
+            pen.goto(0, scale_factor*tick_set)
             pen.left(90)
             draw_tick()
-            pen.goto(scale_factor*tickset*-1, 0)
+            pen.goto(scale_factor*tick_set*-1, 0)
             draw_tick()
-            pen.goto(0, scale_factor*tickset*-1)
+            pen.goto(0, scale_factor*tick_set*-1)
             pen.left(90)
             draw_tick()
         else:
             pen.penup()
-            pen.goto(scale_factor*tickset, 0)
+            pen.goto(scale_factor*tick_set, 0)
             draw_tick()
-            pen.goto(scale_factor*tickset*-1, 0)
+            pen.goto(scale_factor*tick_set*-1, 0)
             draw_tick()
 
 
