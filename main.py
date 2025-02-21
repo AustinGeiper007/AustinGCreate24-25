@@ -20,10 +20,12 @@ scale_factor = 50
 tick_size = 10
 # Constants for turtle window
 # Recommended values: +/- 1000 +/- 800
-right_bound = 1000
-left_bound = -1000
-top_bound = 800
-bottom_bound = -800
+screen_width = 2000
+right_bound = screen_width / 2
+left_bound = right_bound * -1
+screen_height = 1600
+top_bound = screen_height / 2
+bottom_bound = top_bound * -1
 graph_width = right_bound - left_bound
 # Resolution (points plotted)
 # Recommended value: 200 (range 1-1000)
@@ -164,7 +166,7 @@ pen.speed(0)
 
 ## Window Set-Up
 wn = trtl.Screen()
-wn.setup(width=(right_bound-left_bound)/2000, height=(top_bound-bottom_bound)/1600)
+wn.setup(width=screen_width/2000, height=screen_height/1600)
 wn.bgcolor(whiteboard_color)
 
 ### End turtle Set-Up
