@@ -171,7 +171,13 @@ wn.bgcolor(whiteboard_color)
 
 print('What type of equation would you like to graph? Rectangular (y=...) or Parametric (x=...; y=...)')
 eq_type = input('R/P: ')
-number_of_eqs = int(input('How many equations are you graphing: '))
-start(eq_type, number_of_eqs)
+if eq_type == 'R' or eq_type == 'r':
+    number_of_eqs = int(input('How many equations are you graphing: '))
+    start(eq_type, number_of_eqs)
+elif eq_type == 'P' or eq_type == 'p':
+    number_of_eqs = 1
+    start(eq_type, number_of_eqs)
+else:
+    print('Please enter a valid input (R or P)')
 
 wn.mainloop()
