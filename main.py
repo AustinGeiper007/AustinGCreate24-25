@@ -127,11 +127,19 @@ def graph_rect_function(eq):
 
 def graph_parametric_function(xeq, yeq, t_min, t_max):
     global pen, scale_factor, x, y, graph_width
+    pen.penup()
     t = t_min
+    x = eval(xeq)
+    y = eval(yeq)
+    x *= scale_factor
+    y *= scale_factor
+    pen.goto(x, y)
+    pen.pendown()
     for t in range(resolution):
         x = eval(xeq)
         y = eval(yeq)
-        pen.pendown()
+        x *= scale_factor
+        y *= scale_factor
         pen.goto(x, y)
         t += (t_max - t_min) / resolution
 
