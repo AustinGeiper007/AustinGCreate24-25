@@ -20,10 +20,10 @@ scale_factor = 50
 tick_size = 10
 # Constants for turtle window
 # Recommended values: +/- 1000 +/- 800
-screen_width = 2000
+screen_width = 1000
 right_bound = screen_width / 2
 left_bound = right_bound * -1
-screen_height = 1600
+screen_height = 800
 top_bound = screen_height / 2
 bottom_bound = top_bound * -1
 graph_width = right_bound - left_bound
@@ -133,26 +133,34 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
         y = eval(yeq)
         pen.goto(x, y)
 
-
+def window_front():
+    # Below 2 lines were written by cdlane on stackoverflow
+    # https://stackoverflow.com/a/44787756
+    rootwindow.call('wm', 'attributes', '.', '-topmost', '1')
+    rootwindow.call('wm', 'attributes', '.', '-topmost', '0')
 
 def start(eq_type, num_eqs):
     if eq_type == 'R' or 'r':
         setup_graph()
         for equations in range(num_eqs):
-            pen.color(graph_colors[equations])
+            pen.color(graph_colors[equations - int((equations/len(graph_colors)*2))])
             input_equation = input('(in terms of x) y=')
             equation = regex_replace(input_equation)
+            window_front()
             graph_rect_function(equation)
     elif eq_type == 'P' or 'p':
-        x_input = input('(in terms of t) x=')
-        x_equation = regex_replace(x_input)
-        y_input = input('(in terms of t) y=')
-        y_equation = regex_replace(y_input)
-        print('What is your range (in terms of t)')
-        t_minimum = int(input('Minimum Range: '))
-        t_maximum = int(input('Maximum Range: '))
         setup_graph()
-        graph_parametric_function(x_equation, y_equation, t_minimum, t_maximum)
+        for equations in range(num_eqs):
+            pen.color(graph_colors[equations - int((equations/len(graph_colors)*2))])
+            x_input = input('(in terms of t) x=')
+            x_equation = regex_replace(x_input)
+            y_input = input('(in terms of t) y=')
+            y_equation = regex_replace(y_input)
+            print('What is your range (in terms of t)')
+            t_minimum = int(input('Minimum Range: '))
+            t_maximum = int(input('Maximum Range: '))
+            window_front()
+            graph_parametric_function(x_equation, y_equation, t_minimum, t_maximum)
     else:
         print('Please enter a valid input (R or P)')
 
@@ -168,6 +176,9 @@ pen.speed(0)
 wn = trtl.Screen()
 wn.setup(width=screen_width/2000, height=screen_height/1600)
 wn.bgcolor(whiteboard_color)
+# The next line was written by cdlane on stackoverflow
+# https://stackoverflow.com/a/44787756
+rootwindow = wn.getcanvas().winfo_toplevel()
 
 ### End turtle Set-Up
 
