@@ -133,7 +133,7 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
         y = eval(yeq)
         pen.goto(x, y)
 
-def window_front():
+def turtle_window_front():
     # Below 2 lines were written by cdlane on stackoverflow
     # https://stackoverflow.com/a/44787756
     rootwindow.call('wm', 'attributes', '.', '-topmost', '1')
@@ -146,7 +146,7 @@ def start(eq_type, num_eqs):
             pen.color(graph_colors[equations - int((equations/len(graph_colors)*2))])
             input_equation = input('(in terms of x) y=')
             equation = regex_replace(input_equation)
-            window_front()
+            turtle_window_front()
             graph_rect_function(equation)
     elif eq_type == 'P' or 'p':
         setup_graph()
@@ -159,7 +159,7 @@ def start(eq_type, num_eqs):
             print('What is your range (in terms of t)')
             t_minimum = int(input('Minimum Range: '))
             t_maximum = int(input('Maximum Range: '))
-            window_front()
+            turtle_window_front()
             graph_parametric_function(x_equation, y_equation, t_minimum, t_maximum)
     else:
         print('Please enter a valid input (R or P)')
