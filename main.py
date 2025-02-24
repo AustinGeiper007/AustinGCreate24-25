@@ -151,6 +151,7 @@ def turtle_window_front():
 
 def start(eq_type, num_eqs):
     if eq_type == 'R' or eq_type == 'r':
+        print("Setting up graph...")
         setup_graph()
         for equations in range(num_eqs):
             pen.color(graph_colors[equations - int((equations/len(graph_colors)*2))])
@@ -159,6 +160,7 @@ def start(eq_type, num_eqs):
             turtle_window_front()
             graph_rect_function(equation)
     elif eq_type == 'P' or eq_type == 'p':
+        print("Setting up graph...")
         setup_graph()
         for equations in range(num_eqs):
             pen.color(graph_colors[equations - int((equations/len(graph_colors)*2))])
