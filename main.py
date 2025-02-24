@@ -132,6 +132,7 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
         x = eval(xeq)
         y = eval(yeq)
         pen.goto(x, y)
+        t += (t_max - t_min) / resolution
 
 def turtle_window_front():
     # Below 2 lines were written by cdlane on stackoverflow
@@ -140,7 +141,7 @@ def turtle_window_front():
     rootwindow.call('wm', 'attributes', '.', '-topmost', '0')
 
 def start(eq_type, num_eqs):
-    if eq_type == 'R' or 'r':
+    if eq_type == 'R' or eq_type == 'r':
         setup_graph()
         for equations in range(num_eqs):
             pen.color(graph_colors[equations - int((equations/len(graph_colors)*2))])
@@ -148,7 +149,7 @@ def start(eq_type, num_eqs):
             equation = regex_replace(input_equation)
             turtle_window_front()
             graph_rect_function(equation)
-    elif eq_type == 'P' or 'p':
+    elif eq_type == 'P' or eq_type == 'p':
         setup_graph()
         for equations in range(num_eqs):
             pen.color(graph_colors[equations - int((equations/len(graph_colors)*2))])
