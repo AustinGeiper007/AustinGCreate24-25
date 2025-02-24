@@ -131,6 +131,7 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
     for t in range(resolution):
         x = eval(xeq)
         y = eval(yeq)
+        pen.pendown()
         pen.goto(x, y)
         t += (t_max - t_min) / resolution
 
@@ -158,8 +159,8 @@ def start(eq_type, num_eqs):
             y_input = input('(in terms of t) y=')
             y_equation = regex_replace(y_input)
             print('What is your range (in terms of t)')
-            t_minimum = int(input('Minimum Range: '))
-            t_maximum = int(input('Maximum Range: '))
+            t_minimum = float(input('Minimum Range: '))
+            t_maximum = float(input('Maximum Range: '))
             turtle_window_front()
             graph_parametric_function(x_equation, y_equation, t_minimum, t_maximum)
     else:
