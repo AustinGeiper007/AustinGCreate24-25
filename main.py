@@ -135,13 +135,13 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
     y *= scale_factor
     pen.goto(x, y)
     pen.pendown()
-    for t in range(resolution):
+    for point in range(resolution):
+        t += (t_max - t_min) / resolution
         x = eval(xeq)
         y = eval(yeq)
         x *= scale_factor
         y *= scale_factor
         pen.goto(x, y)
-        t += (t_max - t_min) / resolution
 
 def turtle_window_front():
     # Below 2 lines were written by cdlane on stackoverflow
