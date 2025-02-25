@@ -196,16 +196,16 @@ wn.bgcolor(whiteboard_color)
 rootwindow = wn.getcanvas().winfo_toplevel()
 
 ### End turtle Set-Up
-
-print('What type of equation would you like to graph? Rectangular (y=...) or Parametric (x=...; y=...)')
-equation_type = input('R/P: ')
-if equation_type == 'R' or equation_type == 'r':
-    number_of_eqs = int(input('How many equations are you graphing: '))
-    start(equation_type, number_of_eqs)
-elif equation_type == 'P' or equation_type == 'p':
-    number_of_eqs = 1
-    start(equation_type, number_of_eqs)
-else:
-    print('Please enter a valid input (R or P)')
-
-wn.mainloop()
+while True:
+    print('What type of equation would you like to graph? Rectangular (y=...) or Parametric (x=...; y=...)')
+    equation_type = input('R/P: ')
+    if equation_type == 'R' or equation_type == 'r':
+        number_of_eqs = int(input('How many equations are you graphing: '))
+        start(equation_type, number_of_eqs)
+        wn.mainloop()
+    elif equation_type == 'P' or equation_type == 'p':
+        number_of_eqs = 1
+        start(equation_type, number_of_eqs)
+        wn.mainloop()
+    else:
+        print('Please enter a valid input (R or P)')
