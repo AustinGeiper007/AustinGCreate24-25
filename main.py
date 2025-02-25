@@ -141,7 +141,10 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
         y = eval(yeq)
         x *= scale_factor
         y *= scale_factor
+        if (y < 0 < pen.ycor()) or (pen.ycor() < 0 < y):
+            pen.penup()
         pen.goto(x, y)
+        pen.pendown()
 
 def turtle_window_front():
     # The Below 2 lines were written by cdlane on stackoverflow
