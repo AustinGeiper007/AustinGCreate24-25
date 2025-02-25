@@ -144,7 +144,7 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
         pen.goto(x, y)
 
 def turtle_window_front():
-    # Below 2 lines were written by cdlane on stackoverflow
+    # The Below 2 lines were written by cdlane on stackoverflow
     # https://stackoverflow.com/a/44787756
     rootwindow.call('wm', 'attributes', '.', '-topmost', '1')
     rootwindow.call('wm', 'attributes', '.', '-topmost', '0')
