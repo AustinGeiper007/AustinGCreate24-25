@@ -11,6 +11,7 @@ import re
 whiteboard_color = 'black'
 axis_color = 'white'
 graph_colors = ['red', 'blue', 'magenta', 'green', 'orange', 'brown']
+num_of_colors = len(graph_colors)
 # Scale for ticks (number of turtle units between ticks)
 # Recommended value: 50
 scale_factor = 50
@@ -155,9 +156,8 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
 
 # function to rotate thru different colors of graph, for when multiple equations are graphed
 def rotate_pen_color(numeq):
-    global pen, graph_colors
+    global pen, graph_colors, num_of_colors
     color_num = numeq
-    num_of_colors = len(graph_colors)
     while color_num > num_of_colors:
         color_num -= (num_of_colors - 1)
     pen.color(graph_colors[color_num])
