@@ -11,7 +11,6 @@ import re
 whiteboard_color = 'black'
 axis_color = 'white'
 graph_colors = ['red', 'blue', 'magenta', 'green', 'orange', 'brown']
-graph_color = 'red'
 # Scale for ticks (number of turtle units between ticks)
 # Recommended value: 50
 scale_factor = 50
@@ -146,6 +145,14 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
         pen.goto(x, y)
         pen.pendown()
 
+def rotate_pen_color(numeq):
+    global pen, graph_colors
+    color_num = numeq
+    num_of_colors = len(graph_colors)
+    while color_num > num_of_colors:
+        color_num -= (num_of_colors - 1)
+    pen.color(graph_colors[color_num])
+
 def turtle_window_front():
     # The Below 2 lines were written by cdlane on stackoverflow
     # https://stackoverflow.com/a/44787756
@@ -157,7 +164,7 @@ def start(eq_type, num_eqs):
         print("Setting up graph...")
         setup_graph()
         for equations in range(num_eqs):
-            pen.color(graph_colors[equations - int((equations/len(graph_colors)*2))])
+            rotate_pen_color(equations)
             input_equation = input('(in terms of x) y=')
             equation = regex_replace(input_equation)
             turtle_window_front()
@@ -166,7 +173,7 @@ def start(eq_type, num_eqs):
         print("Setting up graph...")
         setup_graph()
         for equations in range(num_eqs):
-            pen.color(graph_colors[equations - int((equations/len(graph_colors)*2))])
+            rotate_pen_color(equations)
             x_input = input('(in terms of t) x=')
             x_equation = regex_replace(x_input)
             y_input = input('(in terms of t) y=')
