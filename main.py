@@ -103,6 +103,9 @@ def setup_graph():
     draw_axis()
     draw_tick_marks()
 
+# Function for graphing a cartesian function
+# Parameter is a the string representing the equation in terms of x
+#       (ie y = eq; eq = 'x' would graph a linear function)
 def graph_rect_function(eq):
     global pen, scale_factor, graph_width
     x = left_bound
@@ -124,6 +127,11 @@ def graph_rect_function(eq):
         pen.pendown()
         x += graph_width/resolution
 
+# Function to graph parametric functions
+# xeq is the equation string for x values
+# yeq is the equation string for y values
+# t_min is the minimum value of the desired range
+# t_max is the maximum value of the desired range
 def graph_parametric_function(xeq, yeq, t_min, t_max):
     global pen, scale_factor, x, y, graph_width
     pen.penup()
@@ -145,6 +153,7 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
         pen.goto(x, y)
         pen.pendown()
 
+# function to rotate thru different colors of graph, for when multiple equations are graphed
 def rotate_pen_color(numeq):
     global pen, graph_colors
     color_num = numeq
@@ -153,12 +162,16 @@ def rotate_pen_color(numeq):
         color_num -= (num_of_colors - 1)
     pen.color(graph_colors[color_num])
 
+# Moves the turtle window to the front of the display
 def turtle_window_front():
     # The Below 2 lines were written by cdlane on stackoverflow
     # https://stackoverflow.com/a/44787756
     rootwindow.call('wm', 'attributes', '.', '-topmost', '1')
     rootwindow.call('wm', 'attributes', '.', '-topmost', '0')
 
+# Primary function
+# Selects the type of equation being graphed (1st parameter)
+# Iterates thru number of equations (2nd parameter)
 def start(eq_type, num_eqs):
     if eq_type == 'R' or eq_type == 'r':
         print("Setting up graph...")
@@ -203,6 +216,8 @@ wn.bgcolor(whiteboard_color)
 rootwindow = wn.getcanvas().winfo_toplevel()
 
 ### End turtle Set-Up
+
+# Main loop
 while True:
     print('What type of equation would you like to graph? Rectangular (y=...) or Parametric (x=...; y=...)')
     equation_type = input('R/P: ')
