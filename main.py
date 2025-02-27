@@ -154,14 +154,6 @@ def graph_parametric_function(xeq, yeq, t_min, t_max):
         pen.goto(x, y)
         pen.pendown()
 
-# function to rotate thru different colors of graph, for when multiple equations are graphed
-def rotate_pen_color(numeq):
-    global pen, graph_colors, num_of_colors
-    color_num = numeq
-    while color_num > num_of_colors:
-        color_num -= (num_of_colors - 1)
-    pen.color(graph_colors[color_num])
-
 # Moves the turtle window to the front of the display
 def turtle_window_front():
     # The Below 2 lines were written by cdlane on stackoverflow
@@ -177,7 +169,7 @@ def start(eq_type, num_eqs):
         print("Setting up graph...")
         setup_graph()
         for equations in range(num_eqs):
-            rotate_pen_color(equations)
+            pen.color(graph_colors[equations % len(graph_colors)])
             input_equation = input('(in terms of x) y=')
             equation = regex_replace(input_equation)
             turtle_window_front()
@@ -186,7 +178,7 @@ def start(eq_type, num_eqs):
         print("Setting up graph...")
         setup_graph()
         for equations in range(num_eqs):
-            rotate_pen_color(equations)
+            pen.color(graph_colors[equations % len(graph_colors)])
             x_input = input('(in terms of t) x=')
             x_equation = regex_replace(x_input)
             y_input = input('(in terms of t) y=')
