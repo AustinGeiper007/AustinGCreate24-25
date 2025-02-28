@@ -1,4 +1,4 @@
-### Import statements cus I need those
+### Import statements
 # There will be an error saying import math as m is unused and shouldn't be there
 # That would be incorrect, it's just stored in strings, so it's not being seen properly
 import math as m
@@ -28,7 +28,7 @@ top_bound = screen_height / 2
 bottom_bound = top_bound * -1
 graph_width = right_bound - left_bound
 # Resolution (points plotted)
-# Recommended value: 200 (range 1-1000)
+# Recommended value: 500 (range 1-1000)
 resolution = 500
 ### Personalization End
 
@@ -105,7 +105,7 @@ def setup_graph():
     draw_tick_marks()
 
 # Function for graphing a cartesian function
-# Parameter is a the string representing the equation in terms of x
+# Parameter is the string representing the equation in terms of x
 #       (ie y = eq; eq = 'x' would graph a linear function)
 def graph_rect_function(eq):
     global pen, scale_factor, graph_width
