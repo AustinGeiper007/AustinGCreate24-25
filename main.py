@@ -20,10 +20,10 @@ scale_factor = 50
 tick_size = 10
 # Constants for turtle window
 # Recommended values: +/- 1000 +/- 800
-screen_width = 1000
+screen_width = 1200
 right_bound = screen_width / 2
 left_bound = right_bound * -1
-screen_height = 800
+screen_height = 1000
 top_bound = screen_height / 2
 bottom_bound = top_bound * -1
 graph_width = right_bound - left_bound
