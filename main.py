@@ -7,17 +7,21 @@ import re
 ### Imports End
 
 ### Personalization Start
+
 # Colors (use words or hex code)
 whiteboard_color = 'black'
 axis_color = 'white'
 graph_colors = ['red', 'blue', 'magenta', 'green', 'orange', 'brown']
 num_of_colors = len(graph_colors)
+
 # Scale for ticks (number of turtle units between ticks)
 # Recommended value: 50
 scale_factor = 50
+
 # Width of each tick
 # Recommended value: 10
 tick_size = 10
+
 # Constants for turtle window
 # Recommended values: +/- 1000 +/- 800
 screen_width = 1200
@@ -27,9 +31,11 @@ screen_height = 1000
 top_bound = screen_height / 2
 bottom_bound = top_bound * -1
 graph_width = right_bound - left_bound
+
 # Resolution (points plotted)
 # Recommended value: 500 (range 1-1000)
 resolution = 500
+
 ### Personalization End
 
 ### Lists for filter
@@ -129,10 +135,10 @@ def graph_rect_function(eq):
         x += graph_width/resolution
 
 # Function to graph parametric functions
-# xeq is the equation string for x values
-# yeq is the equation string for y values
-# t_min is the minimum value of the desired range
-# t_max is the maximum value of the desired range
+#   xeq is the equation string for x values
+#   yeq is the equation string for y values
+#   t_min is the minimum value of the desired range
+#   t_max is the maximum value of the desired range
 def graph_parametric_function(xeq, yeq, t_min, t_max):
     global pen, scale_factor, x, y, graph_width
     pen.penup()
