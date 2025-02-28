@@ -169,7 +169,7 @@ def turtle_window_front():
 
 # Primary function
 # Selects the type of equation being graphed (1st parameter)
-# Iterates thru number of equations (2nd parameter)
+# Iterates through number of equations (2nd parameter)
 def start(eq_type, num_eqs):
     if eq_type == 'R' or eq_type == 'r':
         print("Setting up graph...")
