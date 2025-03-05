@@ -1,6 +1,6 @@
 ### Import statements
 # There will be an error saying import math as m is unused and shouldn't be there
-# That would be incorrect, it's just stored in strings, so it's not being seen properly
+# That would be incorrect, it's just stored in strings, so it's not being seen properly in the editor
 import math as m
 import turtle as trtl
 import re
