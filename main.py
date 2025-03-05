@@ -39,8 +39,14 @@ resolution = 500
 ### Personalization End
 
 ### Lists for filter
-filter_list = (r'(sine|sin)\(?', r'(cosine|cos)\(?', r'(tangent|tan)\(?', r'e\^\(?', r'pi', r'\^', r'1x', r'2x', r'3x', r'4x', r'5x', r'6x', r'7x', r'8x', r'9x', r'0x', r'1t', r'2t', r'3t', r'4t', r'5t', r'6t', r'7t', r'8t', r'9t', r'0t', r'0m', r'1m', r'2m', r'3m', r'4m', r'5m', r'6m', r'7m', r'8m', r'9m')
-replace_list = ('m.sin(', 'm.cos(', 'm.tan(', 'm.exp(', 'm.pi', '**', '1 * x', '2 * x', '3 * x', '4 * x', '5 * x', '6 * x', '7 * x', '8 * x', '9 * x', '0 * x', '1 * t', '2 * t', '3 * t', '4 * t', '5 * t', '6 * t', '7 * t', '8 * t', '9 * t', '0 * t', '0 * m', '1 * m', '2 * m', '3 * m', '4 * m', '5 * m', '6 * m', '7 * m', '8 * m', '9 * m')
+filter_list = (r'(sine|sin)\(?', r'(cosine|cos)\(?', r'(tangent|tan)\(?', r'e\^\(?', r'pi', r'\^', r'1x', r'2x', r'3x',
+               r'4x', r'5x', r'6x', r'7x', r'8x', r'9x', r'0x', r'1t', r'2t', r'3t', r'4t', r'5t', r'6t', r'7t', r'8t',
+               r'9t', r'0t', r'0m', r'1m', r'2m', r'3m', r'4m', r'5m', r'6m', r'7m', r'8m', r'9m')
+
+replace_list = ('m.sin(', 'm.cos(', 'm.tan(', 'm.exp(', 'm.pi', '**', '1 * x', '2 * x', '3 * x', '4 * x', '5 * x',
+                '6 * x', '7 * x', '8 * x', '9 * x', '0 * x', '1 * t', '2 * t', '3 * t', '4 * t', '5 * t', '6 * t',
+                '7 * t', '8 * t', '9 * t', '0 * t', '0 * m', '1 * m', '2 * m', '3 * m', '4 * m', '5 * m', '6 * m',
+                '7 * m', '8 * m', '9 * m')
 ### End Lists
 
 ### Defining functions
